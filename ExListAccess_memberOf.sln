@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessUserAD", "AccessUserAD\AccessUserAD.csproj", "{6E5DC76A-9665-48DB-98D1-EE2D060A5B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib_AccessUserAD", "Lib_AccessUserAD\Lib_AccessUserAD.csproj", "{AB15E53E-88A9-48B8-BD02-D874AEB2BB91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib_AccessUserAD", "Lib_AccessUserAD\Lib_AccessUserAD.csproj", "{AB15E53E-88A9-48B8-BD02-D874AEB2BB91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibFunction", "LibFunction\LibFunction.csproj", "{0ED4E5B9-C9BF-4929-8860-EFE792A0042B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AB15E53E-88A9-48B8-BD02-D874AEB2BB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB15E53E-88A9-48B8-BD02-D874AEB2BB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB15E53E-88A9-48B8-BD02-D874AEB2BB91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED4E5B9-C9BF-4929-8860-EFE792A0042B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED4E5B9-C9BF-4929-8860-EFE792A0042B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED4E5B9-C9BF-4929-8860-EFE792A0042B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED4E5B9-C9BF-4929-8860-EFE792A0042B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

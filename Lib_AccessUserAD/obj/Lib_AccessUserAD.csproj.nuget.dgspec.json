@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.Reflection.Metadata": {
+              "target": "Package",
+              "version": "[1.8.0, )"
             }
           },
           "imports": [

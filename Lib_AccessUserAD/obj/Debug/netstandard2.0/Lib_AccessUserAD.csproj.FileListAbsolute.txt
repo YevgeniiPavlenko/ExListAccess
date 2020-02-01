@@ -6,3 +6,5 @@ C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\Lib_AccessUserAD\o
 C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\Lib_AccessUserAD\obj\Debug\netstandard2.0\Lib_AccessUserAD.AssemblyInfo.cs
 C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\Lib_AccessUserAD\obj\Debug\netstandard2.0\Lib_AccessUserAD.dll
 C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\Lib_AccessUserAD\obj\Debug\netstandard2.0\Lib_AccessUserAD.pdb
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\Lib_AccessUserAD\obj\Debug\netstandard2.0\Lib_AccessUserAD.Properties.Resources.resources
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\Lib_AccessUserAD\obj\Debug\netstandard2.0\Lib_AccessUserAD.csproj.GenerateResource.cache

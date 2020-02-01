@@ -1,9 +1,14 @@
 ﻿using System;
 using System.IO;
+//using System.Reflection.PortableExecutable;
 using System.Xml;
 
 namespace Lib_AccessUserAD
 {
+
+    /// <summary>
+    /// Чтение конфигов для настроек ПО
+    /// </summary>
     public class xInfoConfig
     {
         string xLDAPUri_ActiveDyrectory;
@@ -52,9 +57,7 @@ namespace Lib_AccessUserAD
 
                 if (tXmlDocuments.GetElementsByTagName("xmlElement_LDAP_AD") != null)
                 {
-                    foreach(XmlElement)
-                    
-                    xmlElement_LDAP_AD = tXmlDocuments.GetElementsByTagName("xmlElement_LDAP_AD").Item(0).InnerText;
+                    //xmlElement_LDAP_AD = tXmlDocuments.GetElementsByTagName("xmlElement_LDAP_AD").Item(0).InnerText;
                 } 
                 else
                 {
@@ -62,14 +65,11 @@ namespace Lib_AccessUserAD
                     xmlText_LDAP_AD = tXmlDocuments.CreateTextNode(xLDAPAD);
                 }
                 
-
-                
-                
                 xmlElement_LDAP_User = tXmlDocuments.CreateElement("LDAP_User");
                 xmlText_LDAP_User = tXmlDocuments.CreateTextNode(xLDAPUser);
                 
-                xmlElement_LDAP_AD.AppendChild(xmlText_LDAP_AD);
-                tXmlDocuments.DocumentElement.AppendChild(xmlElement_LDAP_AD);
+                //xmlElement_LDAP_AD.DocumentElement.AppendChild(xmlText_LDAP_AD);
+                //tXmlDocuments.DocumentElement.AppendChild(xmlElement_LDAP_AD);
 
                 xmlElement_LDAP_User.AppendChild(xmlText_LDAP_User);
                 tXmlDocuments.DocumentElement.AppendChild(xmlElement_LDAP_User);
@@ -104,4 +104,7 @@ namespace Lib_AccessUserAD
             newConfig = new xInfoConfig("AD", "US");
         }
     }
+
+   
+
 }

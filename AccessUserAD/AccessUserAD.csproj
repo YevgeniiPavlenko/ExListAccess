@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibFunction\LibFunction.csproj">
+      <Project>{0ed4e5b9-c9bf-4929-8860-efe792a0042b}</Project>
+      <Name>LibFunction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib_AccessUserAD\Lib_AccessUserAD.csproj">
       <Project>{ab15e53e-88a9-48b8-bd02-d874aeb2bb91}</Project>
       <Name>Lib_AccessUserAD</Name>

@@ -1,0 +1,5 @@
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\LibFunction\bin\Debug\LibFunction.dll
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\LibFunction\bin\Debug\LibFunction.pdb
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\LibFunction\obj\Debug\LibFunction.csprojAssemblyReference.cache
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\LibFunction\obj\Debug\LibFunction.dll
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\LibFunction\obj\Debug\LibFunction.pdb

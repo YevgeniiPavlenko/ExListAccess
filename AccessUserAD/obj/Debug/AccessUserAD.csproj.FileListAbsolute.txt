@@ -7,3 +7,5 @@ C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\AccessUserAD\obj\D
 C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\AccessUserAD\bin\Debug\Lib_AccessUserAD.dll
 C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\AccessUserAD\bin\Debug\Lib_AccessUserAD.pdb
 C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\AccessUserAD\obj\Debug\AccessUserAD.csproj.CopyComplete
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\AccessUserAD\bin\Debug\LibFunction.dll
+C:\Users\Yevgenii.Pavlenko\source\repos\ExListAccess_memberOf\AccessUserAD\bin\Debug\LibFunction.pdb

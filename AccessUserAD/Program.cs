@@ -10,7 +10,9 @@ namespace AccessUserAD
     {
         static void Main(string[] args)
         {
-            Lib_AccessUserAD.ReadConfig.GetConfig();
+            //Lib_AccessUserAD.ReadConfig.GetConfig();
+            LibFunction.GetInfoADFromUsers.GetInfoAdCrit();
+            
         }
     }
 }
