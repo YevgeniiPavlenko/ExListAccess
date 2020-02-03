@@ -11,7 +11,7 @@ namespace AccessUserAD
         static void Main(string[] args)
         {
             //Lib_AccessUserAD.ReadConfig.GetConfig();
-            LibFunction.GetInfoADFromUsers.GetInfoAdCrit();
+            LibFunction.GetInfoADFromUsers.InfoAdCrit("", "(department=Сектор кадрової роботи)(title=Провідний фахівець з управління персоналом)", true);
             
         }
     }

@@ -47,7 +47,7 @@ namespace LibFunction
         {
             t_displayName = constr_displayName;
             t_sAMAccountName = constr_sAMAccountName;
-            t_department = constr_displayName;
+            t_department = constr_department;
             t_title = constr_title;
             t_LDAP = constr_LDAP;
         }
@@ -63,7 +63,7 @@ namespace LibFunction
         {
             t_displayName = constr_displayName;
             t_sAMAccountName = constr_sAMAccountName;
-            t_department = constr_displayName;
+            t_department = constr_department;
             t_title = constr_title;
             t_LDAP = "";
         }
@@ -80,8 +80,8 @@ namespace LibFunction
         /// <param name="t_displayName">System.String displayName</param>
         public string displayName
         {
-            get => t_department;
-            set { t_department = value; }
+            get => t_displayName;
+            set { t_displayName = value; }
         }
         /// <summary>
         /// Set ot Get String Properties t_sAMAccountName
@@ -153,7 +153,32 @@ namespace LibFunction
             //GetInfoAdCrit(@"OU=Users,OU=_ZTGAZ,DC=ent,DC=ukrgas,DC=com,DC=ua");
         }
 
-        public static void GetInfoAdCrit(string LDAP_Path = "")
+        /// <summary>
+        /// Displays a list of employees who satisfy the LDAP criterion and filter.
+        /// </summary>
+        /// <param name="xDirectorySearcher_Filter">The filter for search is indicated with parentheses.</param>
+        public static void InfoAdCrit(string xDirectorySearcher_Filter = "")
+        {
+            InfoAdCrit("", xDirectorySearcher_Filter, false);
+        }
+
+        /// <summary>
+        /// Displays a list of employees who satisfy the LDAP criterion and filter.
+        /// </summary>
+        /// <param name="LDAP_Path">The path to the employee branch from which to look for them.</param>
+        /// <param name="xDirectorySearcher_Filter">The filter for search is indicated with parentheses.</param>
+        public static void InfoAdCrit(string LDAP_Path = "", string xDirectorySearcher_Filter = "")
+        {
+            InfoAdCrit(LDAP_Path, xDirectorySearcher_Filter, false);
+        }
+
+        /// <summary>
+        /// Displays a list of employees who satisfy the LDAP criterion and filter.
+        /// </summary>
+        /// <param name="LDAP_Path">The path to the employee branch from which to look for them.</param>
+        /// <param name="xDirectorySearcher_Filter">The filter for search is indicated with parentheses.</param>
+        /// <param name="xISeeResult">A boolean value that determines whether information from the list of employees will be displayed on the screen.</param>
+        public static void InfoAdCrit(string LDAP_Path = "", string xDirectorySearcher_Filter = "", bool xISeeResult = false)
         {
             DirectoryEntry CurrentDomain;
             DirectorySearcher tCurrent_DirectorySearcher;
@@ -175,10 +200,24 @@ namespace LibFunction
                 //Console.WriteLine("{0} - {1}", CurrentDomain.Name, CurrentDomain.Site.Name.ToString());
 
                 //Read All User here
-                CurrentDomain.Path = "LDAP://OU=Users,OU=_ZTGAZ,DC=ent,DC=ukrgas,DC=com,DC=ua";
-
+                if ((LDAP_Path == "") || (LDAP_Path == null))
+                {
+                    CurrentDomain.Path = "LDAP://OU=Users,OU=_ZTGAZ,DC=ent,DC=ukrgas,DC=com,DC=ua";
+                }
+                else
+                {
+                    CurrentDomain.Path = LDAP_Path;
+                }
+                
                 tCurrent_DirectorySearcher = new DirectorySearcher(CurrentDomain);
-                tCurrent_DirectorySearcher.Filter = "(&(objectcategory=user))";
+                if ((xDirectorySearcher_Filter != "") || (xDirectorySearcher_Filter != null))
+                {
+                    tCurrent_DirectorySearcher.Filter = $"(&(objectcategory=user){xDirectorySearcher_Filter})";
+                }
+                else
+                {
+                    tCurrent_DirectorySearcher.Filter = "(&(objectcategory=user))";
+                }
                 tCurrent_DirectorySearcher.SizeLimit = 0;
                 tCurrent_DirectorySearcher.PageSize = 1;
 
@@ -207,13 +246,95 @@ namespace LibFunction
                     x_processWorks++;
                 }
                 Console.Write($"\n");
-                Console.WriteLine($"Count - {tCurrent_ResultCollection.Count.ToString()}, LDAP - {tCurrent_DirectorySearcher.SearchRoot.Path.ToString()}, Count - {tCurrent_DirectorySearcher.SizeLimit.ToString()} \n");
-                Console.WriteLine($"Count Array  - {t_getAtrUsersReads.Count.ToString()}");
+                Console.WriteLine($"Count - {tCurrent_ResultCollection.Count.ToString()}, LDAP - {tCurrent_DirectorySearcher.SearchRoot.Path.ToString()} \n");
+                //Console.WriteLine($"Count Array  - {t_getAtrUsersReads.Count.ToString()}");
+
+                if (xISeeResult != false)
+                {
+                    foreach (GetAtrUsersReads x_getAtrUsersReads in t_getAtrUsersReads)
+                    {
+                        Console.WriteLine("{0},\t{1},\t{2},\t{3}\n",
+                            x_getAtrUsersReads.displayName, x_getAtrUsersReads.sAMAccountName,
+                            x_getAtrUsersReads.department, x_getAtrUsersReads.title);
+                    }
+                }
+                
             }
             catch
             {
                 Console.WriteLine("Error 01 form void GetInfoAdCrit()");
             }
+        }
+
+        /// <summary>
+        /// Function for returning the List <GetAtrUsersReads>, into which employees get according to the filter parameter and LDAP path.
+        /// </summary>
+        /// <param name="LDAP_Path">The path to the employee branch from which to look for them.</param>
+        /// <param name="xDirectorySearcher_Filter">The filter for search is indicated with parentheses.</param>
+        public static List<GetAtrUsersReads> GetInfoAdCrit(string LDAP_Path = "", string xDirectorySearcher_Filter = "")
+        {
+            DirectoryEntry CurrentDomain;
+            DirectorySearcher tCurrent_DirectorySearcher;
+            SearchResultCollection tCurrent_ResultCollection;
+            List<GetAtrUsersReads> t_getAtrUsersReads = new List<GetAtrUsersReads>();
+
+            try
+            {
+                //Init Connection from Controler of Domain
+                if ((LDAP_Path == "") || (LDAP_Path == null))
+                {
+                    CurrentDomain = new DirectoryEntry();
+                }
+                else
+                {
+                    CurrentDomain = new DirectoryEntry(LDAP_Path);
+                }
+
+                //Read All User here
+                if ((LDAP_Path == "") || (LDAP_Path == null))
+                {
+                    CurrentDomain.Path = "LDAP://OU=Users,OU=_ZTGAZ,DC=ent,DC=ukrgas,DC=com,DC=ua";
+                }
+                else
+                {
+                    CurrentDomain.Path = LDAP_Path;
+                }
+
+                tCurrent_DirectorySearcher = new DirectorySearcher(CurrentDomain);
+                if ((xDirectorySearcher_Filter != "") || (xDirectorySearcher_Filter != null))
+                {
+                    tCurrent_DirectorySearcher.Filter = $"(&(objectcategory=user){xDirectorySearcher_Filter})";
+                }
+                else
+                {
+                    tCurrent_DirectorySearcher.Filter = "(&(objectcategory=user))";
+                }
+                tCurrent_DirectorySearcher.SizeLimit = 0;
+                tCurrent_DirectorySearcher.PageSize = 1;
+
+                tCurrent_DirectorySearcher.PropertiesToLoad.Add("displayName");
+                tCurrent_DirectorySearcher.PropertiesToLoad.Add("sAMAccountName");
+                tCurrent_DirectorySearcher.PropertiesToLoad.Add("department");
+                tCurrent_DirectorySearcher.PropertiesToLoad.Add("title");
+
+                tCurrent_ResultCollection = tCurrent_DirectorySearcher.FindAll();
+
+                int x_processWorks = 1;
+                int x_Count_tCurrent_ResultCollection = tCurrent_ResultCollection.Count;
+                foreach (SearchResult xSearchResult in tCurrent_ResultCollection)
+                {
+                    t_getAtrUsersReads.Add(new GetAtrUsersReads(xSearchResult.GetDirectoryEntry().Properties["displayName"].Value.ToString(), xSearchResult.GetDirectoryEntry().Properties["sAMAccountName"].Value.ToString(),
+                        xSearchResult.GetDirectoryEntry().Properties["department"].Value.ToString(), xSearchResult.GetDirectoryEntry().Properties["title"].Value.ToString()));
+
+                    x_processWorks++;
+                }
+            }
+            catch
+            {
+                
+            }
+
+            return t_getAtrUsersReads;
         }
     }
 }
