@@ -1,14 +1,6 @@
 "# ExListAccess" 
 =====================================================
-Released February 02, 2020
 
-Made by:
-Added a separate library for functions that require .Net Freymvork 4.7.2. Functions for receiving parameters with AD are written. Written a separate class for storing user information.
-
-Planning:
-To develop a mechanism for determining information about groups of a domain controller.
-
-=====================================================
 Released February 03, 2020
 
 Fixed a bug in the constructor of the GetAtrUsersReads class.
@@ -34,4 +26,14 @@ It is planned:
 - Further in the future, develop based on the above paragraph, a mechanism that will make changes to the domain controller.
 - Further complete the preservation of information about the work done by the program.
 - make an application, a separate window in which it will be possible to watch, edit the information of the configuration file according to the criteria for providing information.
+=====================================================
+
+Released February 02, 2020
+
+Made by:
+Added a separate library for functions that require .Net Freymvork 4.7.2. Functions for receiving parameters with AD are written. Written a separate class for storing user information.
+
+Planning:
+To develop a mechanism for determining information about groups of a domain controller.
+
 =====================================================
